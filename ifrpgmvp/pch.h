@@ -7,7 +7,21 @@
 #ifndef PCH_H
 #define PCH_H
 
-// add headers that you want to pre-compile here
-#include "framework.h"
+#include <string_view>
+#include <array>
+#include <memory>
+#include <limits>
+#include <stdexcept>
+#include <cstdint>
+#include <cstring>
+#include <cassert>
+
+// x86-windows-static”Å‚Ìvcpkg‚ðŽg‚¤‚æ‚¤.vcxproj‚Ì<VcpkgTriplet>‚ÅŽw’è‚µ‚Ä‚¢‚é
+#include <png.h>
+
+#define STRICT
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
+#include <windows.h>
 
 #endif //PCH_H
