@@ -26,6 +26,11 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+# Custom solution Configurations
+[Dd]ebug_24bpp/
+[Dd]ebug_32bpp/
+[Rr]elease_24bpp/
+[Rr]elease_32bpp/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
