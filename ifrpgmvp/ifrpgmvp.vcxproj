@@ -135,7 +135,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_32bpp|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <TargetExt>.spi</TargetExt>
-    <TargetName>$(ProjectName)_24bpp</TargetName>
+    <TargetName>$(ProjectName)_32bpp</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_24bpp|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -145,7 +145,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_32bpp|x64'">
     <LinkIncremental>true</LinkIncremental>
     <TargetExt>.spi</TargetExt>
-    <TargetName>$(ProjectName)_24bpp</TargetName>
+    <TargetName>$(ProjectName)_32bpp</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_24bpp|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -155,7 +155,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_32bpp|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <TargetExt>.spi</TargetExt>
-    <TargetName>$(ProjectName)_24bpp</TargetName>
+    <TargetName>$(ProjectName)_32bpp</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_24bpp|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -165,7 +165,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_32bpp|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetExt>.spi</TargetExt>
-    <TargetName>$(ProjectName)_24bpp</TargetName>
+    <TargetName>$(ProjectName)_32bpp</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_24bpp|Win32'">
     <ClCompile>
@@ -197,7 +197,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;IFRPGMVP_EXPORTS;IFRPGMVP_24BPP;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;IFRPGMVP_EXPORTS;IFRPGMVP_32BPP;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
@@ -245,7 +245,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;IFRPGMVP_EXPORTS;IFRPGMVP_24BPP;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;IFRPGMVP_EXPORTS;IFRPGMVP_32BPP;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
@@ -299,7 +299,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;IFRPGMVP_EXPORTS;IFRPGMVP_24BPP;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;IFRPGMVP_EXPORTS;IFRPGMVP_32BPP;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
@@ -355,7 +355,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;IFRPGMVP_EXPORTS;IFRPGMVP_24BPP;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;IFRPGMVP_EXPORTS;IFRPGMVP_32BPP;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
