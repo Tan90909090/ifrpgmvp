@@ -7,20 +7,20 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ifrpgmvp", "ifrpgmvp\ifrpgm
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
+		Debug_24bpp|x64 = Debug_24bpp|x64
+		Debug_24bpp|x86 = Debug_24bpp|x86
+		Release_24bpp|x64 = Release_24bpp|x64
+		Release_24bpp|x86 = Release_24bpp|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug|x64.ActiveCfg = Debug|x64
-		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug|x64.Build.0 = Debug|x64
-		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug|x86.ActiveCfg = Debug|Win32
-		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug|x86.Build.0 = Debug|Win32
-		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release|x64.ActiveCfg = Release|x64
-		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release|x64.Build.0 = Release|x64
-		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release|x86.ActiveCfg = Release|Win32
-		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release|x86.Build.0 = Release|Win32
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug_24bpp|x64.ActiveCfg = Debug_24bpp|x64
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug_24bpp|x64.Build.0 = Debug_24bpp|x64
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug_24bpp|x86.ActiveCfg = Debug_24bpp|Win32
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug_24bpp|x86.Build.0 = Debug_24bpp|Win32
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release_24bpp|x64.ActiveCfg = Release_24bpp|x64
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release_24bpp|x64.Build.0 = Release_24bpp|x64
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release_24bpp|x86.ActiveCfg = Release_24bpp|Win32
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release_24bpp|x86.Build.0 = Release_24bpp|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
