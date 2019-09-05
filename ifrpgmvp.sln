@@ -9,18 +9,30 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_24bpp|x64 = Debug_24bpp|x64
 		Debug_24bpp|x86 = Debug_24bpp|x86
+		Debug_32bpp|x64 = Debug_32bpp|x64
+		Debug_32bpp|x86 = Debug_32bpp|x86
 		Release_24bpp|x64 = Release_24bpp|x64
 		Release_24bpp|x86 = Release_24bpp|x86
+		Release_32bpp|x64 = Release_32bpp|x64
+		Release_32bpp|x86 = Release_32bpp|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug_24bpp|x64.ActiveCfg = Debug_24bpp|x64
 		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug_24bpp|x64.Build.0 = Debug_24bpp|x64
 		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug_24bpp|x86.ActiveCfg = Debug_24bpp|Win32
 		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug_24bpp|x86.Build.0 = Debug_24bpp|Win32
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug_32bpp|x64.ActiveCfg = Debug_32bpp|x64
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug_32bpp|x64.Build.0 = Debug_32bpp|x64
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug_32bpp|x86.ActiveCfg = Debug_32bpp|Win32
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Debug_32bpp|x86.Build.0 = Debug_32bpp|Win32
 		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release_24bpp|x64.ActiveCfg = Release_24bpp|x64
 		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release_24bpp|x64.Build.0 = Release_24bpp|x64
 		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release_24bpp|x86.ActiveCfg = Release_24bpp|Win32
 		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release_24bpp|x86.Build.0 = Release_24bpp|Win32
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release_32bpp|x64.ActiveCfg = Release_32bpp|x64
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release_32bpp|x64.Build.0 = Release_32bpp|x64
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release_32bpp|x86.ActiveCfg = Release_32bpp|Win32
+		{92F64FA1-4789-4CDC-9D43-7ACB27B426C8}.Release_32bpp|x86.Build.0 = Release_32bpp|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
