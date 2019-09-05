@@ -26,7 +26,7 @@ SPI_API(std::int32_t) GetPluginInfo(std::int32_t infono, LPSTR buf, std::int32_t
 	using namespace std::literals::string_view_literals;
 	constexpr static std::array infos = {
 		"00IN"sv,
-		"RPGMVP to " BPP " DIB filter ver 0.1.0 (compiled with libpng ver " PNG_LIBPNG_VER_STRING ")"sv,
+		"RPGMVP to " BPP " DIB filter ver 1.0.0 (compiled with libpng ver " PNG_LIBPNG_VER_STRING ")"sv,
 		"*.rpgmvp"sv,
 		"RPGMVP"sv,
 	};
