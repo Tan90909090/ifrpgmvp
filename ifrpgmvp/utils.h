@@ -85,26 +85,6 @@ namespace utils {
 		hlocal_locker<T> lock() { return hlocal_locker<T>{ h_mem_ }; }
 	};
 
-	// libpngで扱うリソースを解放します。
-	class read_struct_destroyer {
-		png_structpp png_ptr_ptr_;
-		png_infopp info_ptr_ptr_;
-		png_infopp end_info_ptr_ptr_;
-	public:
-		read_struct_destroyer(png_structpp png_ptr_ptr, png_infopp info_ptr_ptr, png_infopp end_info_ptr_ptr) noexcept
-			: png_ptr_ptr_(png_ptr_ptr), info_ptr_ptr_(info_ptr_ptr), end_info_ptr_ptr_(end_info_ptr_ptr) {
-		}
-
-		~read_struct_destroyer() {
-			if (png_ptr_ptr_  != nullptr && *png_ptr_ptr_ != nullptr) {
-				png_destroy_read_struct(png_ptr_ptr_, info_ptr_ptr_, end_info_ptr_ptr_);
-			}
-		}
-
-		read_struct_destroyer(const read_struct_destroyer&) = delete;
-		read_struct_destroyer& operator =(const read_struct_destroyer&) = delete;
-	};
-
 	// png_imageのラッパーです。
 	class png_image_wrapper {
 		png_image image_;
@@ -235,63 +215,6 @@ namespace utils {
 		auto png_len = len - rpgmvp_header.size();
 
 		return png_processor(png_buf, png_len);
-	}
-
-	template<class T>
-	spi_result libpng_helper(std::byte* png_address, std::size_t png_length, T png_lib_processor) {
-		if (png_sig_cmp(static_cast<png_const_bytep>(static_cast<void*>(png_address)), 0, 8) != 0) {
-			return spi_result::internal_error; // 正しく復元できていないならヘッダー定義が間違っている
-		}
-
-		png_structp png_ptr = nullptr;
-		png_infop info_ptr = nullptr;
-		read_struct_destroyer destroyer{ &png_ptr, &info_ptr, nullptr };
-
-		// デフォルトではstderrにエラー内容や警告内容が出力されるので自作コールバックにより抑制
-		png_ptr = png_create_read_struct(
-			PNG_LIBPNG_VER_STRING,
-			nullptr, // png_get_error_ptr()で取得できるerror function用のユーザー定義の内容
-			[](png_structp png_ptr, png_const_charp error_msg) { longjmp(png_jmpbuf(png_ptr), 1); }, // error_fn, must be [noreturn]
-			[](png_structp png_ptr, png_const_charp warning_msg) {} // warning_fn
-		); 
-		if (png_ptr == nullptr) {
-			return spi_result::out_of_memory;
-		}
-
-		info_ptr = png_create_info_struct(png_ptr);
-		if (info_ptr == nullptr) {
-			return spi_result::out_of_memory;
-		}
-
-		if (setjmp(png_jmpbuf(png_ptr))) {
-			return spi_result::broken_data;
-		}
-
-		struct callback_argument {
-			std::byte* buf;
-			std::size_t len;
-			std::size_t current_offset;
-		};
-		callback_argument arg{ png_address, png_length, 0 };
-
-		// FILE*からでなくメモリからコピーさせる
-		png_set_read_fn(
-			png_ptr,
-			&arg,
-			[](png_structp png_ptr, png_bytep data, png_size_t length) {
-				// The user_read_data() function is responsible for detecting and handling end - of - data errors.
-				auto arg = static_cast<callback_argument*>(png_get_io_ptr(png_ptr));
-				if (arg->current_offset + length <= arg->len) {
-					memcpy(data, arg->buf + arg->current_offset, length);
-					arg->current_offset += length;
-				}
-				else {
-					png_error(png_ptr, "Data size is too short.");
-				}
-			});
-		png_read_info(png_ptr, info_ptr);
-
-		return png_lib_processor(png_ptr, info_ptr);
 	}
 
 	inline void set_bitmap_info_header(BITMAPINFOHEADER* header, DWORD size, const png_image& image, WORD bit_count, DWORD compression) {
