@@ -18,13 +18,19 @@
 /// 一つのplug - inで複数の画像フォーマットに対応している場合はその数だけ拡張子とファイル形式名を用意します。
 /// </remarks>
 SPI_API(std::int32_t) GetPluginInfo(std::int32_t infono, LPSTR buf, std::int32_t buflen) {
+#ifdef IFRPGMVP_32BPP
+#define BPP "32bpp"
+#else
+#define BPP "24bpp"
+#endif
 	using namespace std::literals::string_view_literals;
 	constexpr static std::array infos = {
 		"00IN"sv,
-		"RPGMVP to DIB filter ver 0.1.0 (compiled with libpng ver " PNG_LIBPNG_VER_STRING ")"sv,
+		"RPGMVP to " BPP " DIB filter ver 0.1.0 (compiled with libpng ver " PNG_LIBPNG_VER_STRING ")"sv,
 		"*.rpgmvp"sv,
 		"RPGMVP"sv,
 	};
+#undef BPP
 
 	if (buf == nullptr || infono < 0 || infono >= static_cast<std::int32_t>(infos.size())) {
 		return 0;
@@ -178,10 +184,10 @@ SPI_API(spi_result) GetPicture(LPSTR buf, std::int32_t len, std::uint32_t flag, 
 					wrapper.begin_read(png_buf, png_len);
 
 					constexpr static png_uint_32 color_format =
-#if 1
-						PNG_FORMAT_BGR;
-#else
+#ifdef IFRPGMVP_32BPP
 						PNG_FORMAT_RGBA;
+#else
+						PNG_FORMAT_BGR;
 #endif
 					constexpr static png_uint_32 colors = PNG_IMAGE_SAMPLE_SIZE(color_format);
 					const size_t padding = colors == 4
