@@ -29,6 +29,8 @@ SPI_API(std::int32_t) GetPluginInfo(std::int32_t infono, LPSTR buf, std::int32_t
 		"RPGMVP to " BPP " DIB filter ver 1.0.0 (compiled with libpng ver " PNG_LIBPNG_VER_STRING ")"sv,
 		"*.rpgmvp"sv,
 		"RPGMVP"sv,
+		"*.png_"sv,
+		"RPGMVP"sv,
 	};
 #undef BPP
 
@@ -193,9 +195,9 @@ SPI_API(spi_result) GetPicture(LPSTR buf, std::int32_t len, std::uint32_t flag, 
 					const size_t padding = colors == 4
 						? 0 // RGBA時は1pxが4byteなのでに画像幅によらずpaddingが0になる
 						: [&wrapper]() {
-							size_t row_bytes = colors * wrapper.image().width;
-							return row_bytes % 4 == 0 ? 0 : 4 - (row_bytes % 4);
-						}();
+						size_t row_bytes = colors * wrapper.image().width;
+						return row_bytes % 4 == 0 ? 0 : 4 - (row_bytes % 4);
+					}();
 
 					auto decoded_buf = std::make_unique<std::byte[]>(colors * wrapper.image().width * wrapper.image().height);
 					constexpr png_color background{ 0xFF, 0x00, 0xFF }; // RGBA時では使用されない
@@ -218,13 +220,13 @@ SPI_API(spi_result) GetPicture(LPSTR buf, std::int32_t len, std::uint32_t flag, 
 						// https://docs.microsoft.com/en-us/windows/win32/gdi/bitmap-header-types
 						// 透明度付 BMP のフォーマット http://files.in.coocan.jp/finekit/transbmp.html
 						// 透明度付 BMP のフォーマット(2) http://files.in.coocan.jp/finekit/transbmp2.html
-						// BMPファイルフォーマット（Windows拡張） - 画像ファイル入出力 - 碧色工房 https://www.mm2d.net/main/prog/c/image_io-09.html 
+						// BMPファイルフォーマット（Windows拡張） - 画像ファイル入出力 - 碧色工房 https://www.mm2d.net/main/prog/c/image_io-09.html
 
 						auto header = static_cast<BITMAPV4HEADER*>(static_cast<void*>(bmp_info_header.get()));
 						utils::set_bitmap_info_header(bmp_info_header.get(), sizeof(*header), wrapper.image(), 32, BI_BITFIELDS);
-						header->bV4RedMask   = 0x000000FF; // little-endian
+						header->bV4RedMask = 0x000000FF; // little-endian
 						header->bV4GreenMask = 0x0000FF00;
-						header->bV4BlueMask  = 0x00FF0000;
+						header->bV4BlueMask = 0x00FF0000;
 						header->bV4AlphaMask = 0xFF000000;
 						header->bV4CSType = LCS_sRGB; // 以降のフィールドは、bV4CSTypeがLCS_CALIBRATED_RGB以外の場合は無視される
 						header->bV4Endpoints = CIEXYZTRIPLE{};
