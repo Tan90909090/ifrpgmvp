@@ -2,6 +2,7 @@
 ## 概要
 `Susie 32bit Plug-in 仕様 rev5`に基づいたSusieプラグインです。
 本ソフトウェアで.rpgmvp形式のファイルを読み込むことが出来ます。
+現状では、RPGツクールMV製の.rpgmvpファイルと、RPGツクールMZ製の.png_ファイルを読み込めます。
 
 `Susie 32bit Plug-in 仕様 rev5`は[Susieのだうんろーど](https://www.digitalpad.co.jp/~takechin/download.html#spi)からダウンロードできる`Plug-in package ver0.08`中の`Spi_api.txt`にて定義されています。
 
@@ -36,3 +37,7 @@ ZIP中に以下のプラグインがありますので、お好みの方をア�
 
 ## ライセンス
 本ソフトウェアはMITライセンスのもとで公開されています。
+
+## バージョン履歴
+- 2021/08/01 ver 1.1.0 RPGツクールMZの.png_形式に対応
+- 2019/09/05 ver 1.0.0 初リリース
